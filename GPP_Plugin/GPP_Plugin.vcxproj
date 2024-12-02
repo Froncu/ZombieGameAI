@@ -80,6 +80,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\external\GPP_PluginBase\include;$(SolutionDir)\external\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PrecompiledHeaderFile>pch.hpp</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -94,7 +95,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="source\SurvivalAgentPlugin.hpp" />
+    <ClInclude Include="source\FroncuAgentPlugin.hpp" />
     <ClInclude Include="source\pch.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -104,7 +105,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">pch.hpp</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pch.hpp</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="source\SurvivalAgentPlugin.cpp" />
+    <ClCompile Include="source\FroncuAgentPlugin.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
