@@ -2,4 +2,6 @@
 *.user
 build/
 temporary/
+GPP_Game/release/GPP_Plugin.dll
+GPP_Game/debug/GPP_Plugin_d.dll
 imgui.ini
