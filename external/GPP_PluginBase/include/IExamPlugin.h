@@ -14,8 +14,8 @@ public:
 	void DllInit() override = 0;
 	void DllShutdown() override = 0;
 
-	virtual void InitGameDebugParams(GameDebugParams& params) {};
-	virtual void Update_Debug(float dt) {};
+	virtual void InitGameDebugParams(GameDebugParams&) {};
+	virtual void Update_Debug(float) {};
 
 	virtual SteeringPlugin_Output UpdateSteering(float dt) = 0;
 	virtual void Render(float dt) const = 0;

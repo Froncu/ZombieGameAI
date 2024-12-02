@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="source\SurvivalAgentPlugin.cpp">
-      <Filter>Source</Filter>
+      <Filter>Survival Agent Plugin</Filter>
     </ClCompile>
     <ClCompile Include="source\stdafx.cpp">
       <Filter>Precompiled Header File</Filter>
@@ -13,14 +13,14 @@
       <Filter>Precompiled Header File</Filter>
     </ClInclude>
     <ClInclude Include="source\SurvivalAgentPlugin.h">
-      <Filter>Source</Filter>
+      <Filter>Survival Agent Plugin</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precompiled Header File">
       <UniqueIdentifier>{8b1be836-1df7-4fb7-9cc5-0d170282c016}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source">
+    <Filter Include="Survival Agent Plugin">
       <UniqueIdentifier>{5cd00529-cbbe-42b9-9f4c-b15b6e2a5bbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

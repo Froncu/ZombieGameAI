@@ -52,7 +52,7 @@ void SurvivalAgentPlugin::InitGameDebugParams(GameDebugParams& params)
 
 //Only Active in DEBUG Mode
 //(=Use only for Debug Purposes)
-void SurvivalAgentPlugin::Update_Debug(float dt)
+void SurvivalAgentPlugin::Update_Debug(float)
 {
 	//Demo Event Code
 	//In the end your Agent should be able to walk around without external input
@@ -118,7 +118,7 @@ void SurvivalAgentPlugin::Update_Debug(float dt)
 }
 
 //This function calculates the new SteeringOutput, called once per frame
-SteeringPlugin_Output SurvivalAgentPlugin::UpdateSteering(float dt)
+SteeringPlugin_Output SurvivalAgentPlugin::UpdateSteering(float)
 {
 	auto steering = SteeringPlugin_Output();
 
@@ -225,7 +225,7 @@ SteeringPlugin_Output SurvivalAgentPlugin::UpdateSteering(float dt)
 }
 
 //This function should only be used for rendering debug elements
-void SurvivalAgentPlugin::Render(float dt) const
+void SurvivalAgentPlugin::Render(float) const
 {
 	//This Render function should only contain calls to Interface->Draw_... functions
 	m_pInterface->Draw_SolidCircle(m_Target, .7f, { 0,0 }, { 1, 0, 0 });
