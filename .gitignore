@@ -1,12 +1,5 @@
-project/.vs/
-project/_Temp/
-
-
-
-
-
-
-
-
-
-
+.vs/
+*.user
+build/
+temporary/
+imgui.ini
