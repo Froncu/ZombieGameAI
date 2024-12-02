@@ -9,10 +9,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\pch.h">
+    <ClInclude Include="source\pch.hpp">
       <Filter>Precompiled Header File</Filter>
     </ClInclude>
-    <ClInclude Include="source\SurvivalAgentPlugin.h">
+    <ClInclude Include="source\SurvivalAgentPlugin.hpp">
       <Filter>Survival Agent Plugin</Filter>
     </ClInclude>
   </ItemGroup>

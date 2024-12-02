@@ -1,5 +1,5 @@
-#include "pch.h"
-#include "SurvivalAgentPlugin.h"
+#include "pch.hpp"
+#include "SurvivalAgentPlugin.hpp"
 #include "IExamInterface.h"
 
 using namespace std;
