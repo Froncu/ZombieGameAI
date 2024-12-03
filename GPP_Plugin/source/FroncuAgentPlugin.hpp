@@ -3,28 +3,33 @@
 
 #include "pch.hpp"
 
-struct HouseCornersComparator final
+struct HouseCornerHasher final
 {
-   bool operator()(Elite::Vector2 const house_corner1, Elite::Vector2 const house_corner2) const
+   std::size_t operator()(Elite::Vector2 const house_corner) const
    {
-      // this is needed because the next check is not fully accurate on it's own;
-      // two different points might be at the same distance from the current position
-      // (chances of that happening are very low, but this additional check is not expensive)
-      if (house_corner1 == house_corner2)
-         return false;
+      std::hash<float> constexpr hasher{};
+      std::size_t const hash_x{ hasher(std::round(house_corner.x)) };
+      std::size_t const hash_y{ hasher(std::round(house_corner.y)) };
 
-      auto const current_position{ interface->Agent_GetInfo().Position };
-
-      return
-         (house_corner1 - current_position).MagnitudeSquared() <
-         (house_corner2 - current_position).MagnitudeSquared();
+      return hash_x ^ (hash_y << 1);
    }
+};
 
-   IExamInterface const* interface;
+struct HouseCornerComparator final
+{
+   bool operator()(Elite::Vector2 house_corner1, Elite::Vector2 house_corner2) const
+   {
+      house_corner1 = { std::round(house_corner1.x), std::round(house_corner1.y) };
+      house_corner2 = { std::round(house_corner2.x), std::round(house_corner2.y) };
+
+      return house_corner1 == house_corner2;
+   }
 };
 
 class FroncuAgentPlugin : public IExamPlugin
 {
+   using HouseCornersType = std::unordered_set<Elite::Vector2, HouseCornerHasher, HouseCornerComparator>;
+
 public:
    FroncuAgentPlugin() = default;
    virtual ~FroncuAgentPlugin() override = default;
@@ -49,7 +54,8 @@ private:
 
    IExamInterface* interface_{};
 
-   std::set<Elite::Vector2, HouseCornersComparator> house_corners_{};
+   HouseCornersType house_corners_{};
+   HouseCornersType::iterator closest_house_corner_{ house_corners_.end() };
    Elite::Vector2 scanner_{};
 
    // rendering

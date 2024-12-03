@@ -10,7 +10,6 @@ void FroncuAgentPlugin::DllInit()
 void FroncuAgentPlugin::Initialize(IBaseInterface* const interface, PluginInfo& info)
 {
    interface_ = static_cast<IExamInterface* const>(interface);
-   house_corners_ = std::set<Elite::Vector2, HouseCornersComparator>{ HouseCornersComparator{ interface_ } };
 
    // information for the leaderboards!
    info.BotName = "xXx_-_RECORD_-_SMASHER_-_xXx";
@@ -22,14 +21,29 @@ void FroncuAgentPlugin::Initialize(IBaseInterface* const interface, PluginInfo& 
 SteeringPlugin_Output FroncuAgentPlugin::UpdateSteering(float)
 {
    Elite::Vector2 const current_position{ interface_->Agent_GetInfo().Position };
-   
-   scanner_ = current_position + max_distance_to_house_corner_ * Elite::OrientationToVector(interface_->Agent_GetInfo().Orientation);
+
+   scanner_ = current_position + max_distance_to_house_corner_ *
+      Elite::OrientationToVector(interface_->Agent_GetInfo().Orientation);
    scanner_ = interface_->NavMesh_GetClosestPathPoint(scanner_);
 
-   if ((scanner_ - current_position).MagnitudeSquared() <= max_distance_to_house_corner_ * max_distance_to_house_corner_ - epsilon_)
-      house_corners_.insert(scanner_);
+   if ((scanner_ - current_position).MagnitudeSquared() <=
+      max_distance_to_house_corner_ * max_distance_to_house_corner_ - epsilon_ and
+      house_corners_.insert(scanner_).second)
+   {
+      closest_house_corner_ = std::ranges::min_element(house_corners_,
+         [current_position](Elite::Vector2 const house_corner1, Elite::Vector2 const house_corner2)
+         {
+            return
+               (house_corner1 - current_position).MagnitudeSquared() <
+               (house_corner2 - current_position).MagnitudeSquared();
+         });
+   }
 
-   Elite::Vector2 const delta_closest_house_corner{ house_corners_.empty() ? Elite::Vector2{ 64.0f, 64.0f } : *house_corners_.begin() - current_position };
+   Elite::Vector2 const delta_closest_house_corner{
+      closest_house_corner_ == house_corners_.end() ?
+      Elite::Vector2{ 64.0f, 64.0f } :
+      *closest_house_corner_ - current_position };
+
    float const fov_range{ interface_->Agent_GetInfo().FOV_Range };
    bool const house_corner_in_fov{ delta_closest_house_corner.MagnitudeSquared() <= fov_range * fov_range };
 
@@ -44,17 +58,16 @@ SteeringPlugin_Output FroncuAgentPlugin::UpdateSteering(float)
 void FroncuAgentPlugin::InitGameDebugParams(GameDebugParams& parameters)
 {
    parameters.Seed = int(time(nullptr));
-   std::cout << std::format("[SEED IN USE: {}]\n", parameters.Seed);
+
+   std::cout << std::format("\n[SEED IN USE: {}]\n\n", parameters.Seed);
 }
 
 void FroncuAgentPlugin::Render(float) const
 {
-   if (not house_corners_.empty())
-   {
-      interface_->Draw_SolidCircle(*house_corners_.begin(), house_corner_size_, {}, closest_house_corner_color_);
-      for (Elite::Vector2 const house_corner : std::ranges::views::drop(house_corners_, 1))
-         interface_->Draw_SolidCircle(house_corner, house_corner_size_, {}, house_corner_color_);
-   }
+   for (Elite::Vector2 const house_corner : house_corners_)
+      interface_->Draw_SolidCircle(house_corner, house_corner_size_, {}, house_corner_color_);
+   if (closest_house_corner_ not_eq house_corners_.end())
+      interface_->Draw_SolidCircle(*closest_house_corner_, house_corner_size_, {}, closest_house_corner_color_);
 
    Elite::Vector2 const current_position{ interface_->Agent_GetInfo().Position };
    interface_->Draw_Segment(current_position, scanner_, scanner_color_);
