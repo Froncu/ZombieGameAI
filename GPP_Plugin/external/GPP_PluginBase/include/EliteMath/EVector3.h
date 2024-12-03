@@ -20,9 +20,9 @@ namespace Elite {
 		float z = 0.0f;
 
 		//=== Constructors ===
-		Vector3(){};
-		Vector3(float _x, float _y, float _z):x(_x), y(_y), z(_z) {};
-		explicit Vector3(const Vector2 v, float _z = 0.f):x(v.x), y(v.y), z(_z) {};
+        constexpr Vector3(){};
+		constexpr Vector3(float _x, float _y, float _z):x(_x), y(_y), z(_z) {};
+        constexpr explicit Vector3(const Vector2 v, float _z = 0.f):x(v.x), y(v.y), z(_z) {};
 		//Vector3(const Vector3& other); //Copy Constructor
 		//Vector3& operator=(const Vector3& other); //Copy Assignment Operator
 
@@ -35,48 +35,48 @@ namespace Elite {
 #endif
 
 		//=== Arithmetic Operators ===
-		inline auto operator+(const Vector3& v) const
+        inline auto operator+(const Vector3& v) const
 		{ return Vector3(x + v.x, y + v.y, z + v.z); }
-		inline auto operator-(const Vector3& v) const
+        inline auto operator-(const Vector3& v) const
 		{ return Vector3(x - v.x, y - v.y, z - v.z); }
-		inline auto operator*(float scale) const
+        constexpr inline auto operator*(float scale) const
 		{ return Vector3(x * scale, y * scale, z * scale); }
-		inline auto operator/(float scale) const
+        inline auto operator/(float scale) const
 		{
 			const auto revScale = 1.0f / scale;
 			return Vector3(x * revScale, y * revScale, z * revScale);
 		}
 
 		//=== Compound Assignment Operators === //auto& for type deduction
-		inline auto& operator+=(const Vector3& v)
+        inline auto& operator+=(const Vector3& v)
 		{ x += v.x; y += v.y; z += v.z; return *this; }
-		inline auto& operator-=(const Vector3& v)
+        inline auto& operator-=(const Vector3& v)
 		{ x -= v.x; y -= v.y; z -= v.z; return *this; }
-		inline auto& operator*=(float scale)
+        inline auto& operator*=(float scale)
 		{ x *= scale; y *= scale; z *= scale; return *this; }
-		inline auto& operator/=(float scale)
+        inline auto& operator/=(float scale)
 		{
 			const auto revScale = 1.0f / scale;
 			x *= revScale; y *= revScale; z *= revScale; return *this;
 		}
 
 		//=== Relational Operators ===
-		inline auto operator==(const Vector3& v) const /*Check if both components are equal*/
+        inline auto operator==(const Vector3& v) const /*Check if both components are equal*/
 		{ return AreEqual(x, v.x) && AreEqual(y, v.y) && AreEqual(z, v.z); }
-		inline auto operator!=(const Vector3& v) const /*Check if one or both components are NOT equal*/
+        inline auto operator!=(const Vector3& v) const /*Check if one or both components are NOT equal*/
 		{ return !(*this == v);	}
 
 		//=== Member Access Operators ===
-		inline float operator[](unsigned int i) const
+        inline float operator[](unsigned int i) const
 		{ return ((i == 0) ? x : y); }
-		inline float& operator[](unsigned int i)
+        inline float& operator[](unsigned int i)
 		{ return ((i == 0) ? x : y); }
 
 		//=== Internal Vector Functions ===
-		inline auto Dot(const Vector3& v) const
+        inline auto Dot(const Vector3& v) const
 		{ return x * v.x + y * v.y + z * v.z; }
 
-		inline auto Cross(const Vector3& v) const
+        constexpr inline auto Cross(const Vector3& v) const
 		{ 
 			return Vector3(
 				y * v.z - z * v.y,
@@ -87,7 +87,7 @@ namespace Elite {
 		inline auto GetAbs() const
 		{ return Vector3(abs(x), abs(y), abs(z)); }
 
-		inline auto SqrtMagnitude() const
+        inline auto SqrtMagnitude() const
 		{ return x*x + y*y + z*z;	}
 
 		inline auto Magnitude() const

@@ -7,6 +7,7 @@
     <ClCompile Include="source\pch.cpp">
       <Filter>pch</Filter>
     </ClCompile>
+    <ClCompile Include="source\entry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\pch.hpp">
@@ -15,6 +16,12 @@
     <ClInclude Include="source\FroncuAgentPlugin.hpp">
       <Filter>FroncuAgentPlugin</Filter>
     </ClInclude>
+    <ClInclude Include="source\HouseCornerComparator.hpp">
+      <Filter>Miscellaneous\HouseCornerComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HouseCornerHasher.hpp">
+      <Filter>Miscellaneous\HouseCornerHasher</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="FroncuAgentPlugin">
@@ -22,6 +29,15 @@
     </Filter>
     <Filter Include="pch">
       <UniqueIdentifier>{8b1be836-1df7-4fb7-9cc5-0d170282c016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Miscellaneous">
+      <UniqueIdentifier>{d7f26b73-5d6d-46e8-997b-17ce44a9176a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Miscellaneous\HouseCornerHasher">
+      <UniqueIdentifier>{bd92db12-2eef-4d89-a79d-20ff5eaa382f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Miscellaneous\HouseCornerComparator">
+      <UniqueIdentifier>{0b41e3a2-9005-43ff-8f5f-da867cb2820e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

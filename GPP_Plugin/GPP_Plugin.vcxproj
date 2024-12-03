@@ -95,9 +95,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="source\FroncuAgentPlugin.hpp" />
+    <ClInclude Include="source\HouseCornerComparator.hpp" />
+    <ClInclude Include="source\HouseCornerHasher.hpp" />
     <ClInclude Include="source\pch.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\entry.cpp" />
     <ClCompile Include="source\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

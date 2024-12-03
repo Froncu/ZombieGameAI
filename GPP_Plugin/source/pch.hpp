@@ -3,12 +3,16 @@
 
 #include <algorithm>
 #include <assert.h>
+#include <cmath>
+#include <cstdarg>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
 #include <format>
 #include <fstream>
 #include <functional>
 #include <iostream>
 #include <list>
-#include <math.h>
 #include <memory>
 #include <new>
 #include <queue>
@@ -17,10 +21,6 @@
 #include <set>
 #include <string>
 #include <sstream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <time.h>
 #include <unordered_set>
 #include <vector>
 
