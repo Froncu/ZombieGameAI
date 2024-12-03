@@ -12,9 +12,6 @@ void FroncuAgentPlugin::Initialize(IBaseInterface* const interface, PluginInfo& 
    interface_ = static_cast<IExamInterface* const>(interface);
    house_corners_ = std::set<Elite::Vector2, HouseCornersComparator>{ HouseCornersComparator{ interface_ } };
 
-   Elite::Vector2 const world_dimensions{ interface_->World_GetInfo().Dimensions };
-   max_distance_to_house_corner_ = std::sqrt(world_dimensions.x * world_dimensions.x + world_dimensions.y * world_dimensions.y);
-
    // information for the leaderboards!
    info.BotName = "xXx_-_RECORD_-_SMASHER_-_xXx";
    info.Student_Name = "JAKUB FRATCZAK"; // no special characters allowed

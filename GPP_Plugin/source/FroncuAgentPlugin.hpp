@@ -44,10 +44,11 @@ public:
    virtual void Render(float) const override;
 
 private:
+   static float constexpr max_distance_to_house_corner_{ 256.0f };
+
    IExamInterface* interface_{};
 
    std::set<Elite::Vector2, HouseCornersComparator> house_corners_{};
-   float max_distance_to_house_corner_{};
 
    Elite::Vector2 latest_potential_house_corner_{};
 };
