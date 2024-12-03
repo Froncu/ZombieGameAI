@@ -45,6 +45,7 @@ public:
 
 private:
    static float constexpr max_distance_to_house_corner_{ 256.0f };
+   static float constexpr epsilon_{ 1.0f };
 
    IExamInterface* interface_{};
 
