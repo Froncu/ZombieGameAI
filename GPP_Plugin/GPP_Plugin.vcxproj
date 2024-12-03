@@ -86,7 +86,6 @@
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>GPP_PluginBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)\external\GPP_PluginBase\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Xdcmake />
     <Bscmake />
