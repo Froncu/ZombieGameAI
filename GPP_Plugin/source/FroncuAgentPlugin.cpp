@@ -22,13 +22,12 @@ void FroncuAgentPlugin::Initialize(IBaseInterface* const interface, PluginInfo& 
 SteeringPlugin_Output FroncuAgentPlugin::UpdateSteering(float)
 {
    Elite::Vector2 const current_position{ interface_->Agent_GetInfo().Position };
-   Elite::Vector2 const potential_house_corner{ 
-      current_position + max_distance_to_house_corner_ *
-      Elite::OrientationToVector(interface_->Agent_GetInfo().Orientation) };
+   
+   scanner_ = current_position + max_distance_to_house_corner_ * Elite::OrientationToVector(interface_->Agent_GetInfo().Orientation);
+   scanner_ = interface_->NavMesh_GetClosestPathPoint(scanner_);
 
-   latest_potential_house_corner_ = interface_->NavMesh_GetClosestPathPoint(potential_house_corner);
-   if ((latest_potential_house_corner_ - current_position).MagnitudeSquared() <= max_distance_to_house_corner_ * max_distance_to_house_corner_ - epsilon_)
-      house_corners_.insert(latest_potential_house_corner_);
+   if ((scanner_ - current_position).MagnitudeSquared() <= max_distance_to_house_corner_ * max_distance_to_house_corner_ - epsilon_)
+      house_corners_.insert(scanner_);
 
    Elite::Vector2 const delta_closest_house_corner{ house_corners_.empty() ? Elite::Vector2{ 64.0f, 64.0f } : *house_corners_.begin() - current_position };
    float const fov_range{ interface_->Agent_GetInfo().FOV_Range };
@@ -53,5 +52,5 @@ void FroncuAgentPlugin::Render(float) const
    for (Elite::Vector2 const house_corner : house_corners_)
       interface_->Draw_SolidCircle(house_corner, 2.0f, {}, { 0.0f, 1.0f, 0.0f });
 
-   interface_->Draw_SolidCircle(latest_potential_house_corner_, 1.0f, {}, {});
+   interface_->Draw_SolidCircle(scanner_, 1.0f, {}, {});
 }

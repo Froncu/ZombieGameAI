@@ -50,8 +50,7 @@ private:
    IExamInterface* interface_{};
 
    std::set<Elite::Vector2, HouseCornersComparator> house_corners_{};
-
-   Elite::Vector2 latest_potential_house_corner_{};
+   Elite::Vector2 scanner_{};
 };
 
 extern "C"
