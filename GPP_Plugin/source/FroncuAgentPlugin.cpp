@@ -49,8 +49,15 @@ void FroncuAgentPlugin::InitGameDebugParams(GameDebugParams& parameters)
 
 void FroncuAgentPlugin::Render(float) const
 {
-   for (Elite::Vector2 const house_corner : house_corners_)
-      interface_->Draw_SolidCircle(house_corner, 2.0f, {}, { 0.0f, 1.0f, 0.0f });
+   if (not house_corners_.empty())
+   {
+      interface_->Draw_SolidCircle(*house_corners_.begin(), house_corner_size_, {}, closest_house_corner_color_);
+      for (Elite::Vector2 const house_corner : std::ranges::views::drop(house_corners_, 1))
+         interface_->Draw_SolidCircle(house_corner, house_corner_size_, {}, house_corner_color_);
+   }
 
-   interface_->Draw_SolidCircle(scanner_, 1.0f, {}, {});
+   Elite::Vector2 const current_position{ interface_->Agent_GetInfo().Position };
+   interface_->Draw_Segment(current_position, scanner_, scanner_color_);
+   interface_->Draw_SolidCircle(scanner_, scanner_size_, {}, scanner_color_);
+   interface_->Draw_Circle(current_position, max_distance_to_house_corner_, scanner_color_);
 }

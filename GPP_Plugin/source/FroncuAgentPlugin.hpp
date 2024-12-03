@@ -51,6 +51,14 @@ private:
 
    std::set<Elite::Vector2, HouseCornersComparator> house_corners_{};
    Elite::Vector2 scanner_{};
+
+   // rendering
+   static float constexpr house_corner_size_{ 2.0f };
+   Elite::Vector3 const closest_house_corner_color_{ 0.0f, 1.0f, 0.0f };
+   Elite::Vector3 const house_corner_color_{ closest_house_corner_color_ * 0.75f };
+
+   static float constexpr scanner_size_{ 1.0f };
+   Elite::Vector3 const scanner_color_{ 0.0f, 0.0f, 0.0f };
 };
 
 extern "C"

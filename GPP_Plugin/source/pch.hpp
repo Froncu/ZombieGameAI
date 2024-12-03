@@ -13,6 +13,7 @@
 #include <new>
 #include <queue>
 #include <random>
+#include <ranges>
 #include <set>
 #include <string>
 #include <sstream>
