@@ -33,13 +33,13 @@ SteeringPlugin_Output FroncuAgentPlugin::UpdateSteering(float)
    if ((latest_potential_house_corner_ - current_position).MagnitudeSquared() <= max_distance_to_house_corner_ * max_distance_to_house_corner_)
       house_corners_.insert(latest_potential_house_corner_);
 
-   Elite::Vector2 const delta_closest_house_corner{ *house_corners_.begin() - current_position };
+   Elite::Vector2 const delta_closest_house_corner{ house_corners_.empty() ? Elite::Vector2{ 64.0f, 64.0f } : *house_corners_.begin() - current_position };
    float const fov_range{ interface_->Agent_GetInfo().FOV_Range };
    bool const house_corner_in_fov{ delta_closest_house_corner.MagnitudeSquared() <= fov_range * fov_range };
 
    return SteeringPlugin_Output
    {
-      .LinearVelocity{ house_corners_.empty() ? Elite::Vector2{} : delta_closest_house_corner },
+      .LinearVelocity{ delta_closest_house_corner },
       .AngularVelocity{ interface_->Agent_GetInfo().MaxAngularSpeed },
       .AutoOrient{ house_corner_in_fov }
    };
