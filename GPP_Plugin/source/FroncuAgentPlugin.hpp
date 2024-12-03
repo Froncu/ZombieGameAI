@@ -29,9 +29,10 @@ public:
    FroncuAgentPlugin() = default;
    virtual ~FroncuAgentPlugin() override = default;
 
-   virtual void Initialize(IBaseInterface* const interface, PluginInfo& info) override;
-   virtual void DllInit() override {};
+   virtual void DllInit() override;
    virtual void DllShutdown() override {};
+
+   virtual void Initialize(IBaseInterface* const interface, PluginInfo& info) override;
 
    virtual SteeringPlugin_Output UpdateSteering(float delta_seconds) override;
 

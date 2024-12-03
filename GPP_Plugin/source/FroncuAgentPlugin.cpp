@@ -2,6 +2,11 @@
 
 #include "FroncuAgentPlugin.hpp"
 
+void FroncuAgentPlugin::DllInit()
+{
+   srand(static_cast<int>(time(nullptr)));
+}
+
 void FroncuAgentPlugin::Initialize(IBaseInterface* const interface, PluginInfo& info)
 {
    interface_ = static_cast<IExamInterface* const>(interface);
