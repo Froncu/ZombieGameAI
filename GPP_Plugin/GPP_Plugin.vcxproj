@@ -101,12 +101,15 @@
     <ClInclude Include="source\HouseCornerHasher.hpp" />
     <ClInclude Include="source\FSMCondition.hpp" />
     <ClInclude Include="source\FSMState.hpp" />
+    <ClInclude Include="source\IsCloseToHouseCondition.hpp" />
     <ClInclude Include="source\pch.hpp" />
+    <ClInclude Include="source\SearchingState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\entry.cpp" />
     <ClCompile Include="source\ExploringState.cpp" />
     <ClCompile Include="source\FSMState.cpp" />
+    <ClCompile Include="source\IsCloseToHouseCondition.cpp" />
     <ClCompile Include="source\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -114,6 +117,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pch.hpp</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="source\FroncuAgentPlugin.cpp" />
+    <ClCompile Include="source\SearchingState.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

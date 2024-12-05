@@ -10,6 +10,8 @@
     <ClCompile Include="source\entry.cpp" />
     <ClCompile Include="source\ExploringState.cpp" />
     <ClCompile Include="source\FSMState.cpp" />
+    <ClCompile Include="source\SearchingState.cpp" />
+    <ClCompile Include="source\IsCloseToHouseCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\pch.hpp">
@@ -34,6 +36,8 @@
       <Filter>Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="source\ExploringState.hpp" />
+    <ClInclude Include="source\SearchingState.hpp" />
+    <ClInclude Include="source\IsCloseToHouseCondition.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="FroncuAgentPlugin">
