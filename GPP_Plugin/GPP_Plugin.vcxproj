@@ -108,6 +108,7 @@
   <ItemGroup>
     <ClCompile Include="source\entry.cpp" />
     <ClCompile Include="source\ExploringState.cpp" />
+    <ClCompile Include="source\FSMCondition.cpp" />
     <ClCompile Include="source\FSMState.cpp" />
     <ClCompile Include="source\IsCloseToHouseCondition.cpp" />
     <ClCompile Include="source\pch.cpp">
