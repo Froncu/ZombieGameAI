@@ -8,6 +8,7 @@
       <Filter>pch</Filter>
     </ClCompile>
     <ClCompile Include="source\entry.cpp" />
+    <ClCompile Include="source\ExploringState.cpp" />
     <ClCompile Include="source\FSMState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="source\HouseCornerHasher.hpp">
       <Filter>Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="source\ExploringState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="FroncuAgentPlugin">
