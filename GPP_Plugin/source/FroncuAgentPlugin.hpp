@@ -3,10 +3,17 @@
 
 #include "pch.hpp"
 
+#include "ExploringState.hpp"
+#include "FSM.hpp"
+#include "IsCloseToHouseCondition.hpp"
+#include "SearchingState.hpp"
+
 namespace ai
 {
    class FroncuAgentPlugin : public IExamPlugin
    {
+      using FSMType = FSM<ExploringState, SearchingState, IsCloseToHouseCondition>;
+
    public:
       FroncuAgentPlugin() = default;
       virtual ~FroncuAgentPlugin() override = default;
@@ -26,6 +33,8 @@ namespace ai
 
    private:
       IExamInterface* interface_{};
+
+      std::unique_ptr<FSMType> state_machine_{};
    };
 }
 

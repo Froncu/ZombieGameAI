@@ -12,6 +12,7 @@ namespace ai
    void FroncuAgentPlugin::Initialize(IBaseInterface* const interface, PluginInfo& info)
    {
       interface_ = static_cast<IExamInterface* const>(interface);
+      state_machine_ = std::make_unique<FSMType>(interface_);
 
       // information for the leaderboards!
       info.BotName = "xXx_-_RECORD_-_SMASHER_-_xXx";
@@ -20,13 +21,14 @@ namespace ai
       info.LB_Password = "BigBoss04!";
    }
 
-   SteeringPlugin_Output FroncuAgentPlugin::UpdateSteering(float const)
+   SteeringPlugin_Output FroncuAgentPlugin::UpdateSteering(float const delta_seconds)
    {
-      return {};
+      return state_machine_->Update(delta_seconds);
    }
 
-   void FroncuAgentPlugin::Render(float const) const
+   void FroncuAgentPlugin::Render(float const delta_seconds) const
    {
+      state_machine_->Render(delta_seconds);
    }
 
    void FroncuAgentPlugin::InitGameDebugParams(GameDebugParams& parameters)
