@@ -16,12 +16,6 @@
     <ClInclude Include="source\FroncuAgentPlugin.hpp">
       <Filter>FroncuAgentPlugin</Filter>
     </ClInclude>
-    <ClInclude Include="source\HouseCornerComparator.hpp">
-      <Filter>Miscellaneous\HouseCornerComparator</Filter>
-    </ClInclude>
-    <ClInclude Include="source\HouseCornerHasher.hpp">
-      <Filter>Miscellaneous\HouseCornerHasher</Filter>
-    </ClInclude>
     <ClInclude Include="source\FSMCondition.hpp">
       <Filter>FSM</Filter>
     </ClInclude>
@@ -30,6 +24,12 @@
     </ClInclude>
     <ClInclude Include="source\FSM.hpp">
       <Filter>FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HouseCornerComparator.hpp">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HouseCornerHasher.hpp">
+      <Filter>Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -41,12 +41,6 @@
     </Filter>
     <Filter Include="Miscellaneous">
       <UniqueIdentifier>{d7f26b73-5d6d-46e8-997b-17ce44a9176a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Miscellaneous\HouseCornerHasher">
-      <UniqueIdentifier>{bd92db12-2eef-4d89-a79d-20ff5eaa382f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Miscellaneous\HouseCornerComparator">
-      <UniqueIdentifier>{0b41e3a2-9005-43ff-8f5f-da867cb2820e}</UniqueIdentifier>
     </Filter>
     <Filter Include="FSM">
       <UniqueIdentifier>{39701cc8-e215-473c-81c6-92d3e44571ac}</UniqueIdentifier>
