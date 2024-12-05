@@ -14,7 +14,7 @@ namespace ai
 
       virtual void OnEnter() override {};
       virtual void OnExit() override {};
-      virtual SteeringPlugin_Output Update(float const) override {};
+      virtual SteeringPlugin_Output Update(float const) override { return {}; };
       virtual void Render(float const) override {};
    };
 }
