@@ -6,7 +6,7 @@ namespace ai
    class FSMCondition
    {
    public:
-      FSMCondition() = default;
+      FSMCondition(IExamInterface* const interface);
       FSMCondition(FSMCondition const&) = delete;
       FSMCondition(FSMCondition&&) noexcept = delete;
 
@@ -16,6 +16,9 @@ namespace ai
       FSMCondition& operator=(FSMCondition&&) noexcept = delete;
 
       [[nodiscard]] virtual bool Evaluate() const = 0;
+
+   protected:
+      IExamInterface* const interface_;
    };
 }
 
