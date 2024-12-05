@@ -1,11 +1,11 @@
-#ifndef HOUSE_CORNER_COMPARATOR_HPP
-#define HOUSE_CORNER_COMPARATOR_HPP
+#ifndef ROUNDED_VECTOR_COMPARATOR_HPP
+#define ROUNDED_VECTOR_COMPARATOR_HPP
 
 #include "pch.hpp"
 
 namespace ai
 {
-   struct HouseCornerComparator final
+   struct RoundedVectorComparator final
    {
       [[nodiscard]] bool operator()(Elite::Vector2 house_corner1, Elite::Vector2 house_corner2) const
       {

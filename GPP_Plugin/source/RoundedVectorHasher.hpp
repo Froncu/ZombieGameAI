@@ -1,11 +1,11 @@
-#ifndef HOUSE_CORNER_HASHER_HPP
-#define HOUSE_CORNER_HASHER_HPP
+#ifndef ROUNDER_VECTOR_HASHER_HPP
+#define ROUNDER_VECTOR_HASHER_HPP
 
 #include "pch.hpp"
 
 namespace ai
 {
-   struct HouseCornerHasher final
+   struct RoundedVectorHasher final
    {
       [[nodiscard]] std::size_t operator()(Elite::Vector2 const house_corner) const
       {

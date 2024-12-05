@@ -2,14 +2,14 @@
 #define EXPLORING_STATE_HPP
 
 #include "FSMState.hpp"
-#include "HouseCornerComparator.hpp"
-#include "HouseCornerHasher.hpp"
+#include "RoundedVectorComparator.hpp"
+#include "RoundedVectorHasher.hpp"
 
 namespace ai
 {
    class ExploringState final : public FSMState
    {
-      using HouseCornersType = std::unordered_set<Elite::Vector2, HouseCornerHasher, HouseCornerComparator>;
+      using HouseCornersType = std::unordered_set<Elite::Vector2, RoundedVectorHasher, RoundedVectorComparator>;
 
    public:
       ExploringState(IExamInterface* const interface);
