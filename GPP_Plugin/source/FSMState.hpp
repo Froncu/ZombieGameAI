@@ -20,7 +20,7 @@ namespace ai
       virtual void OnEnter() {};
       virtual void OnExit() {};
       virtual SteeringPlugin_Output Update(float delta_seconds) = 0;
-      virtual void Render(float const delta_seconds) {};
+      virtual void Render(float const) {};
 
    protected:
       IExamInterface* const interface_;
