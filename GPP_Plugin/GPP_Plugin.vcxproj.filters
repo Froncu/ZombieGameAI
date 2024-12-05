@@ -34,10 +34,10 @@
     <ClInclude Include="source\FSM.hpp">
       <Filter>FSM</Filter>
     </ClInclude>
-    <ClInclude Include="source\HouseCornerComparator.hpp">
+    <ClInclude Include="source\RoundedVectorComparator.hpp">
       <Filter>Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="source\HouseCornerHasher.hpp">
+    <ClInclude Include="source\RoundedVectorHasher.hpp">
       <Filter>Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="source\IsCloseToHouseCondition.hpp">
