@@ -94,6 +94,7 @@ namespace ai
             condition = std::make_unique<Condition>(interface);
 
          transitions_[from.get()].push_back({ to.get(), condition.get() });
+         transitions_[to.get()];
 
          // recursive calls' return value is ignored, but the top call should not be
          if constexpr (sizeof...(Rest))
