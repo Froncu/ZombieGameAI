@@ -57,7 +57,7 @@ namespace ai
 
       ~FSM() = default;
 
-      SteeringPlugin_Output Update(float delta_sconds)
+      [[nodiscard]] SteeringPlugin_Output Update(float delta_sconds)
       {
          for (auto&& [state, condition] : current_state_->second)
             if (condition->Evaluate())

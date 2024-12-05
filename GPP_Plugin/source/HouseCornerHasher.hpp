@@ -7,7 +7,7 @@ namespace ai
 {
    struct HouseCornerHasher final
    {
-      std::size_t operator()(Elite::Vector2 const house_corner) const
+      [[nodiscard]] std::size_t operator()(Elite::Vector2 const house_corner) const
       {
          std::hash<float> constexpr hasher{};
          std::size_t const hash_x{ hasher(std::round(house_corner.x)) };

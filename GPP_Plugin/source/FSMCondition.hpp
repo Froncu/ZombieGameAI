@@ -15,7 +15,7 @@ namespace ai
       FSMCondition& operator=(FSMCondition const&) = delete;
       FSMCondition& operator=(FSMCondition&&) noexcept = delete;
 
-      virtual bool Evaluate() const = 0;
+      [[nodiscard]] virtual bool Evaluate() const = 0;
    };
 }
 

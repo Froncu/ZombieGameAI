@@ -7,7 +7,7 @@ namespace ai
 {
    struct HouseCornerComparator final
    {
-      bool operator()(Elite::Vector2 house_corner1, Elite::Vector2 house_corner2) const
+      [[nodiscard]] bool operator()(Elite::Vector2 house_corner1, Elite::Vector2 house_corner2) const
       {
          house_corner1.x = std::round(house_corner1.x);
          house_corner1.y = std::round(house_corner1.y);
