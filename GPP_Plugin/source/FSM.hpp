@@ -43,7 +43,8 @@ namespace ai
       using TransitionsMap = std::unordered_map<FSMState*, std::vector<std::pair<FSMState*, FSMCondition*>>>;
 
    public:
-      FSM()
+      FSM(IExamInterface* const interface)
+         : current_state_{ ExtractTransitions<From, To, Condition, Rest...>(interface) }
       {
          current_state_->first->OnEnter();
       };
@@ -55,11 +56,6 @@ namespace ai
       FSM& operator=(FSM&&) = delete;
 
       ~FSM() = default;
-
-      void AssignInterface(IExamInterface* const interface)
-      {
-         interface_ = interface;
-      }
 
       SteeringPlugin_Output Update(float delta_sconds)
       {
@@ -83,36 +79,34 @@ namespace ai
    private:
       template<typename From, typename To, typename Condition, typename... Rest>
          requires (ValidateTransitionsPack<From, To, Condition, Rest...>())
-      [[nodiscard]] TransitionsMap::iterator ExtractTransitions()
+      [[nodiscard]] TransitionsMap::iterator ExtractTransitions(IExamInterface* const interface)
       {
          std::unique_ptr<FSMState>& from{ states_[std::type_index(typeid(From))] };
          if (not from.get())
-            from = std::make_unique<From>();
+            from = std::make_unique<From>(interface);
 
          std::unique_ptr<FSMState>& to{ states_[std::type_index(typeid(To))] };
          if (not to.get())
-            to = std::make_unique<To>();
+            to = std::make_unique<To>(interface);
 
          std::unique_ptr<FSMCondition>& condition{ conditions_[std::type_index(typeid(Condition))] };
          if (not condition.get())
-            condition = std::make_unique<Condition>();
+            condition = std::make_unique<Condition>(interface);
 
          transitions_[from.get()].push_back({ to.get(), condition.get() });
 
          // recursive calls' return value is ignored, but the top call should not be
          if constexpr (sizeof...(Rest))
-            std::ignore = ExtractTransitions<Rest...>();
+            std::ignore = ExtractTransitions<Rest...>(interface);
 
          return transitions_.begin();
       }
-
-      IExamInterface* interface_{};
 
       std::unordered_map<std::type_index, std::unique_ptr<FSMState>> states_{};
       std::unordered_map<std::type_index, std::unique_ptr<FSMCondition>> conditions_{};
       TransitionsMap transitions_{};
 
-      TransitionsMap::iterator current_state_{ ExtractTransitions<From, To, Condition, Rest...>() };
+      TransitionsMap::iterator current_state_;
    };
 }
 

@@ -1,12 +1,14 @@
 #ifndef FSM_STATE_HPP
 #define FSM_STATE_HPP
 
+#include "pch.hpp"
+
 namespace ai
 {
    class FSMState
    {
    public:
-      FSMState() = default;
+      FSMState(IExamInterface* const interface);
       FSMState(FSMState const&) = delete;
       FSMState(FSMState&&) = delete;
 
@@ -19,6 +21,9 @@ namespace ai
       virtual void OnExit() {};
       virtual SteeringPlugin_Output Update(float delta_seconds) = 0;
       virtual void Render(float const delta_seconds) {};
+
+   protected:
+      IExamInterface* const interface_;
    };
 }
 

@@ -8,6 +8,7 @@
       <Filter>pch</Filter>
     </ClCompile>
     <ClCompile Include="source\entry.cpp" />
+    <ClCompile Include="source\FSMState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\pch.hpp">
