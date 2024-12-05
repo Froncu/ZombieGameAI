@@ -7,15 +7,15 @@ namespace ai
 {
    struct RoundedVectorComparator final
    {
-      [[nodiscard]] bool operator()(Elite::Vector2 house_corner1, Elite::Vector2 house_corner2) const
+      [[nodiscard]] bool operator()(Elite::Vector2 vector1, Elite::Vector2 vector2) const
       {
-         house_corner1.x = std::round(house_corner1.x);
-         house_corner1.y = std::round(house_corner1.y);
+         vector1.x = std::round(vector1.x);
+         vector1.y = std::round(vector1.y);
 
-         house_corner2.x = std::round(house_corner2.x);
-         house_corner2.y = std::round(house_corner2.y);
+         vector2.x = std::round(vector2.x);
+         vector2.y = std::round(vector2.y);
 
-         return house_corner1 == house_corner2;
+         return vector1 == vector2;
       }
    };
 }

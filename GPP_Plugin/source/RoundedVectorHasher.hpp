@@ -7,11 +7,11 @@ namespace ai
 {
    struct RoundedVectorHasher final
    {
-      [[nodiscard]] std::size_t operator()(Elite::Vector2 const house_corner) const
+      [[nodiscard]] std::size_t operator()(Elite::Vector2 const vector) const
       {
          std::hash<float> constexpr hasher{};
-         std::size_t const hash_x{ hasher(std::round(house_corner.x)) };
-         std::size_t const hash_y{ hasher(std::round(house_corner.y)) };
+         std::size_t const hash_x{ hasher(std::round(vector.x)) };
+         std::size_t const hash_y{ hasher(std::round(vector.y)) };
 
          return hash_x ^ (hash_y << 1);
       }
