@@ -17,7 +17,7 @@ namespace ai
 
       virtual void OnEnter() = 0;
       virtual void OnExit() = 0;
-      virtual void Update(float deltaSeconds) = 0;
+      virtual void Update(float delta_seconds) = 0;
    };
 }
 

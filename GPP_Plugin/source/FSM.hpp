@@ -43,7 +43,11 @@ namespace ai
       using TransitionsMap = std::unordered_map<FSMState*, std::vector<std::pair<FSMState*, FSMCondition*>>>;
 
    public:
-      FSM() = default;
+      FSM()
+      {
+         current_state_->first->OnEnter();
+      };
+
       FSM(FSM const&) = delete;
       FSM(FSM&&) noexcept = delete;
 
