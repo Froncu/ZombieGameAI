@@ -22,6 +22,15 @@
     <ClInclude Include="source\HouseCornerHasher.hpp">
       <Filter>Miscellaneous\HouseCornerHasher</Filter>
     </ClInclude>
+    <ClInclude Include="source\FSMCondition.hpp">
+      <Filter>FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="source\FSMState.hpp">
+      <Filter>FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="source\FSM.hpp">
+      <Filter>FSM</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="FroncuAgentPlugin">
@@ -38,6 +47,9 @@
     </Filter>
     <Filter Include="Miscellaneous\HouseCornerComparator">
       <UniqueIdentifier>{0b41e3a2-9005-43ff-8f5f-da867cb2820e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FSM">
+      <UniqueIdentifier>{39701cc8-e215-473c-81c6-92d3e44571ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

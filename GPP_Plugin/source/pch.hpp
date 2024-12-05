@@ -21,6 +21,7 @@
 #include <set>
 #include <string>
 #include <sstream>
+#include <typeindex>
 #include <unordered_set>
 #include <vector>
 

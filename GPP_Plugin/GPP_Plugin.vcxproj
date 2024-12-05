@@ -95,8 +95,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="source\FroncuAgentPlugin.hpp" />
+    <ClInclude Include="source\FSM.hpp" />
     <ClInclude Include="source\HouseCornerComparator.hpp" />
     <ClInclude Include="source\HouseCornerHasher.hpp" />
+    <ClInclude Include="source\FSMCondition.hpp" />
+    <ClInclude Include="source\FSMState.hpp" />
     <ClInclude Include="source\pch.hpp" />
   </ItemGroup>
   <ItemGroup>
