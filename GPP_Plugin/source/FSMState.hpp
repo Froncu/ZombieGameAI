@@ -17,7 +17,8 @@ namespace ai
 
       virtual void OnEnter() = 0;
       virtual void OnExit() = 0;
-      virtual void Update(float delta_seconds) = 0;
+      virtual SteeringPlugin_Output Update(float delta_seconds) = 0;
+      virtual void Render(float const delta_seconds) {};
    };
 }
 

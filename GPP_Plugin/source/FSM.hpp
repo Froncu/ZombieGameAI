@@ -56,7 +56,12 @@ namespace ai
 
       ~FSM() = default;
 
-      void Update(float delta_sconds)
+      void AssignInterface(IExamInterface* const interface)
+      {
+         interface_ = interface;
+      }
+
+      SteeringPlugin_Output Update(float delta_sconds)
       {
          for (auto&& [state, condition] : current_state_->second)
             if (condition->Evaluate())
@@ -67,7 +72,12 @@ namespace ai
                return;
             }
 
-         current_state_->first->Update(delta_sconds);
+         return current_state_->first->Update(delta_sconds);
+      }
+
+      void Render(float const delta_seconds)
+      {
+         current_state_->first->Render(delta_seconds);
       }
 
    private:
@@ -95,6 +105,8 @@ namespace ai
 
          return transitions_.begin();
       }
+
+      IExamInterface* interface_{};
 
       std::unordered_map<std::type_index, std::unique_ptr<FSMState>> states_{};
       std::unordered_map<std::type_index, std::unique_ptr<FSMCondition>> conditions_{};
