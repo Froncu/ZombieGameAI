@@ -65,7 +65,7 @@ namespace ai
                current_state_->first->OnExit();
                current_state_ = transitions_.find(state);
                current_state_->first->OnEnter();
-               return;
+               break;
             }
 
          return current_state_->first->Update(delta_sconds);
