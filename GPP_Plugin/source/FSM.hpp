@@ -100,7 +100,7 @@ namespace ai
          if constexpr (sizeof...(Rest))
             std::ignore = ExtractTransitions<Rest...>(interface);
 
-         return transitions_.begin();
+         return transitions_.find(from.get());
       }
 
       std::unordered_map<std::type_index, std::unique_ptr<FSMState>> states_{};
