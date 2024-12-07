@@ -1,7 +1,11 @@
 #ifndef SEARCHING_STATE_HPP
 #define SEARCHING_STATE_HPP
 
+#include "pch.hpp"
+
 #include "FSMState.hpp"
+#include "HouseInfoComparator.hpp"
+#include "HouseInfoHasher.hpp"
 
 namespace ai
 {
@@ -12,10 +16,13 @@ namespace ai
 
       virtual ~SearchingState() override = default;
 
-      virtual void OnEnter() override {};
-      virtual void OnExit() override {};
-      virtual SteeringPlugin_Output Update(float const) override { return {}; };
-      virtual void Render(float const) override {};
+      virtual void OnEnter() override;
+      virtual void OnExit() override;
+      [[nodiscard]] virtual SteeringPlugin_Output Update(float) override;
+      virtual void Render(float) override;
+
+   private:
+      std::unordered_set<HouseInfo, HouseInfoHasher, HouseInfoComparator> houses_{};
    };
 }
 

@@ -43,14 +43,11 @@ namespace ai
          Elite::Vector2{ 64.0f, 64.0f } :
          *closest_house_corner_ - current_position };
 
-      float const fov_range{ interface_->Agent_GetInfo().FOV_Range };
-      bool const house_corner_in_fov{ delta_closest_house_corner.MagnitudeSquared() <= fov_range * fov_range };
-
       return SteeringPlugin_Output
       {
          .LinearVelocity{ delta_closest_house_corner },
          .AngularVelocity{ interface_->Agent_GetInfo().MaxAngularSpeed },
-         .AutoOrient{ house_corner_in_fov }
+         .AutoOrient{ false }
       };
    }
 

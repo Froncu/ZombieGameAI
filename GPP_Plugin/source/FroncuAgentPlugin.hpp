@@ -5,14 +5,14 @@
 
 #include "ExploringState.hpp"
 #include "FSM.hpp"
-#include "IsCloseToHouseCondition.hpp"
+#include "SeesHousesCondition.hpp"
 #include "SearchingState.hpp"
 
 namespace ai
 {
    class FroncuAgentPlugin : public IExamPlugin
    {
-      using FSMType = FSM<ExploringState, SearchingState, IsCloseToHouseCondition>;
+      using FSMType = FSM<ExploringState, SearchingState, SeesHousesCondition>;
 
    public:
       FroncuAgentPlugin() = default;

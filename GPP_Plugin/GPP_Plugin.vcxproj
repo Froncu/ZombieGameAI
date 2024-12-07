@@ -94,6 +94,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="source\HouseInfoComparator.hpp" />
+    <ClInclude Include="source\HouseInfoHasher.hpp" />
     <ClInclude Include="source\ExploringState.hpp" />
     <ClInclude Include="source\FroncuAgentPlugin.hpp" />
     <ClInclude Include="source\FSM.hpp" />
@@ -101,7 +103,7 @@
     <ClInclude Include="source\RoundedVectorHasher.hpp" />
     <ClInclude Include="source\FSMCondition.hpp" />
     <ClInclude Include="source\FSMState.hpp" />
-    <ClInclude Include="source\IsCloseToHouseCondition.hpp" />
+    <ClInclude Include="source\SeesHousesCondition.hpp" />
     <ClInclude Include="source\pch.hpp" />
     <ClInclude Include="source\SearchingState.hpp" />
   </ItemGroup>
@@ -110,7 +112,7 @@
     <ClCompile Include="source\ExploringState.cpp" />
     <ClCompile Include="source\FSMCondition.cpp" />
     <ClCompile Include="source\FSMState.cpp" />
-    <ClCompile Include="source\IsCloseToHouseCondition.cpp" />
+    <ClCompile Include="source\SeesHousesCondition.cpp" />
     <ClCompile Include="source\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

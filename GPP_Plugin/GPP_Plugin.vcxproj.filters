@@ -8,8 +8,8 @@
       <Filter>pch</Filter>
     </ClCompile>
     <ClCompile Include="source\entry.cpp" />
-    <ClCompile Include="source\IsCloseToHouseCondition.cpp">
-      <Filter>FSM\Conditions\IsCloseToHouseCondition</Filter>
+    <ClCompile Include="source\SeesHousesCondition.cpp">
+      <Filter>FSM\Conditions\SeesHousesCondition</Filter>
     </ClCompile>
     <ClCompile Include="source\ExploringState.cpp">
       <Filter>FSM\States\ExploringState</Filter>
@@ -40,8 +40,8 @@
     <ClInclude Include="source\RoundedVectorHasher.hpp">
       <Filter>Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="source\IsCloseToHouseCondition.hpp">
-      <Filter>FSM\Conditions\IsCloseToHouseCondition</Filter>
+    <ClInclude Include="source\SeesHousesCondition.hpp">
+      <Filter>FSM\Conditions\SeesHousesCondition</Filter>
     </ClInclude>
     <ClInclude Include="source\ExploringState.hpp">
       <Filter>FSM\States\ExploringState</Filter>
@@ -54,6 +54,12 @@
     </ClInclude>
     <ClInclude Include="source\FSMCondition.hpp">
       <Filter>FSM\FSMCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HouseInfoHasher.hpp">
+      <Filter>Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HouseInfoComparator.hpp">
+      <Filter>Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +81,6 @@
     <Filter Include="FSM\Conditions">
       <UniqueIdentifier>{5f66b3a8-8986-4330-a063-c01d5d0ab023}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FSM\Conditions\IsCloseToHouseCondition">
-      <UniqueIdentifier>{1a85e93e-3681-4aa7-9f3f-264259ed8d84}</UniqueIdentifier>
-    </Filter>
     <Filter Include="FSM\States\SearchingState">
       <UniqueIdentifier>{f68cf897-50f5-4dcd-884f-ec9c75c993f8}</UniqueIdentifier>
     </Filter>
@@ -89,6 +92,9 @@
     </Filter>
     <Filter Include="FSM\FSMCondition">
       <UniqueIdentifier>{62a835ff-2918-4fad-92e4-d8adb9079b4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FSM\Conditions\SeesHousesCondition">
+      <UniqueIdentifier>{1a85e93e-3681-4aa7-9f3f-264259ed8d84}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
